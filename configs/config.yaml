@@ -1,0 +1,18 @@
+project:
+  id: "ce-demo-space"
+  region: "us-central1"
+  bucket: "gs://fine-tuning-example"
+
+pipeline:
+  name: "llama-fine-tuning"
+  machine_type: "a2-highgpu-1g"
+  data_path: "gs://fine-tuning-example/datasets/imdb_20241030_094509"
+
+model:
+  base_model: "meta-llama/Llama-2-7b-hf"
+  display_name: "llama-fine-tuned"
+  
+training:
+  num_epochs: 3
+  batch_size: 4  # Reduced batch size
+  learning_rate: 1e-4  # Adjusted learning rate
